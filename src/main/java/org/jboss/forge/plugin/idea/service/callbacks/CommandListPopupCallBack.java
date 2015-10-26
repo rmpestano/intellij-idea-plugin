@@ -11,7 +11,10 @@ import java.util.List;
 
 import org.jboss.forge.addon.ui.command.UICommand;
 import org.jboss.forge.addon.ui.context.UIContext;
+import org.jboss.forge.addon.ui.context.UIContextListener;
+import org.jboss.forge.furnace.services.Imported;
 import org.jboss.forge.plugin.idea.context.UIContextFactory;
+import org.jboss.forge.plugin.idea.service.ForgeService;
 import org.jboss.forge.plugin.idea.service.PluginService;
 import org.jboss.forge.plugin.idea.ui.CommandListPopupBuilder;
 
@@ -30,6 +33,7 @@ public class CommandListPopupCallBack implements Runnable
     {
         this.project = project;
         this.selectedFiles = selectedFiles;
+
     }
 
     @Override

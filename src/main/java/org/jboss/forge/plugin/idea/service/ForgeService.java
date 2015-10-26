@@ -119,6 +119,17 @@ public class ForgeService implements ApplicationComponent, PersistentStateCompon
       return (exportedInstance == null || exportedInstance.isUnsatisfied()) ? null : exportedInstance.get();
    }
 
+   public <S> Imported<S> lookupImported(Class<S> service) {
+      if (furnace == null) {
+         createFurnace();
+      }
+      Imported<S> importedService = null;
+      if (furnace != null) {
+         importedService = furnace.getAddonRegistry().getServices(service);
+      }
+      return importedService;
+   }
+
    @SuppressWarnings("unchecked")
    public <T> Class<T> locateNativeClass(Class<T> type)
    {
